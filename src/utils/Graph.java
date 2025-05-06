@@ -19,8 +19,8 @@
  * @version Oktober 2015
  */
 public class Graph{
-  private List<Vertex> vertices;
-  private List<Edge> edges;
+  private BinaryTree.List<Vertex> vertices;
+  private BinaryTree.List<Edge> edges;
 
   /**
    * Ein Objekt vom Typ Graph wird erstellt. Der von diesem Objekt 
@@ -28,16 +28,16 @@ public class Graph{
    */
   public Graph(){
     //Leere Listen fuer Knoten und Kanten erstellen.
-    vertices = new List<Vertex>();
-    edges = new List<Edge>();
+    vertices = new BinaryTree.List<Vertex>();
+    edges = new BinaryTree.List<Edge>();
   }
 
   /**
-   * Die Anfrage liefert eine neue Liste aller Knotenobjekte vom Typ List<Vertex>.
+   * Die Anfrage liefert eine neue Liste aller Knotenobjekte vom Typ BinaryTree.List<Vertex>.
    */
-  public List<Vertex> getVertices(){
+  public BinaryTree.List<Vertex> getVertices(){
     //Eine neue Liste mit allen Vertex-Objekten erstellen.
-    List<Vertex> result = new List<Vertex>();
+    BinaryTree.List<Vertex> result = new BinaryTree.List<Vertex>();
     vertices.toFirst();
     while (vertices.hasAccess()){
       result.append(vertices.getContent());
@@ -50,11 +50,11 @@ public class Graph{
   }
 
   /**
-   * Die Anfrage liefert eine neue Liste aller Kantenobjekte vom Typ List<Edge>.
+   * Die Anfrage liefert eine neue Liste aller Kantenobjekte vom Typ BinaryTree.List<Edge>.
    */
-  public List<Edge> getEdges(){
+  public BinaryTree.List<Edge> getEdges(){
     //Eine neue Liste mit allen Edge-Objekten erstellen.
-    List<Edge> result = new List<Edge>();
+    BinaryTree.List<Edge> result = new BinaryTree.List<Edge>();
     edges.toFirst();
     while (edges.hasAccess()){
       result.append(edges.getContent());
@@ -226,12 +226,12 @@ public class Graph{
   }
 
   /**
-   * Die Anfrage liefert alle Nachbarn des Knotens pVertex als neue Liste vom Typ List<Vertex>. Hat der Knoten
+   * Die Anfrage liefert alle Nachbarn des Knotens pVertex als neue Liste vom Typ BinaryTree.List<Vertex>. Hat der Knoten
    * pVertex keine Nachbarn in diesem Graphen oder ist gar nicht in diesem Graphen enthalten, so 
    * wird eine leere Liste zurueckgeliefert.
    */
-  public List<Vertex> getNeighbours(Vertex pVertex){
-    List<Vertex> result = new List<Vertex>();
+  public BinaryTree.List<Vertex> getNeighbours(Vertex pVertex){
+    BinaryTree.List<Vertex> result = new BinaryTree.List<Vertex>();
     
     //Alle Kanten durchlaufen.
     edges.toFirst();
@@ -256,8 +256,8 @@ public class Graph{
    * pVertex keine inzidenten Kanten in diesem Graphen oder ist gar nicht in diesem Graphen enthalten, so 
    * wird eine leere Liste zurueckgeliefert.
    */
-  public List<Edge> getEdges(Vertex pVertex){
-    List<Edge> result = new List<Edge>();
+  public BinaryTree.List<Edge> getEdges(Vertex pVertex){
+    BinaryTree.List<Edge> result = new BinaryTree.List<Edge>();
     
     //Alle Kanten durchlaufen.
     edges.toFirst();

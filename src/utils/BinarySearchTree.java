@@ -13,7 +13,7 @@
  * verwaltet ein Inhaltsobjekt sowie einen linken und einen rechten Teilbaum,
  * die ebenfalls Objekte der Klasse BinarySearchTree sind.<br />
  * Die Klasse der Objekte, die in dem Suchbaum verwaltet werden sollen, muss
- * das generische Interface ComparableContent implementieren. Dabei muss durch
+ * das generische Interface BinarySearchTree.ComparableContent implementieren. Dabei muss durch
  * Ueberschreiben der drei Vergleichsmethoden isLess, isEqual, isGreater (s.
  * Dokumentation des Interfaces) eine eindeutige Ordnungsrelation festgelegt
  * sein. <br />
@@ -27,7 +27,7 @@
  * @author Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule
  * @version Generisch_03 2017-11-28
  */
-public class BinarySearchTree<ContentType extends ComparableContent<ContentType>> {
+public class BinarySearchTree<ContentType extends BinarySearchTree.ComparableContent<ContentType>> {
 
 	/* --------- Anfang der privaten inneren Klasse -------------- */
 
@@ -257,4 +257,64 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 		return node.right.node;
 	}
 
+    /**
+    * <p>
+    * Materialien zu den zentralen NRW-Abiturpruefungen im Fach Informatik ab 2018
+    * </p>
+    * <p>
+    * Generisches Interface (Schnittstelle) BinarySearchTree.ComparableContent<ContentType>
+    * </p>
+    * <p>
+    * <p>Das generische Interface BinarySearchTree.ComparableContent<ContentType> legt die Methoden
+    * fest, ueber die Objekte verfuegen muessen, die in einen binaeren Suchbaum
+    * (BinarySearchTree) eingefuegt werden sollen. Die Ordnungsrelation wird in
+    * Klassen, die BinarySearchTree.ComparableContent implementieren durch Ueberschreiben der drei
+    * implizit abstrakten Methoden isGreater, isEqual und isLess festgelegt.
+    * </p>
+    * </p>
+    * @author Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule
+    * @version Generisch_02 2014-03-01
+    */
+   public static interface ComparableContent<ContentType> {
+
+     /**
+      * Wenn festgestellt wird, dass das Objekt, von dem die Methode aufgerufen
+      * wird, bzgl. der gewuenschten Ordnungsrelation groesser als das Objekt
+      * pContent ist, wird true geliefert. Sonst wird false geliefert.
+      *
+      * @param pContent
+      *          das mit dem aufrufenden Objekt zu vergleichende Objekt vom
+      *          Typ ContentType
+      * @return true, wenn das aufrufende Objekt groesser ist als das Objekt
+      *         pContent, sonst false
+      */
+     public boolean isGreater(ContentType pContent);
+
+     /**
+      * Wenn festgestellt wird, dass das Objekt, von dem die Methode aufgerufen
+      * wird, bzgl. der gewuenschten Ordnungsrelation gleich gross wie das Objekt
+      * pContent ist, wird true geliefert. Sonst wird false geliefert.
+      *
+      * @param pContent
+      *          das mit dem aufrufenden Objekt zu vergleichende Objekt vom
+      *          Typ ContentType
+      * @return true, wenn das aufrufende Objekt gleich gross ist wie das Objekt
+      *         pContent, sonst false
+      */
+     public boolean isEqual(ContentType pContent);
+
+     /**
+      * Wenn festgestellt wird, dass das Objekt, von dem die Methode aufgerufen
+      * wird, bzgl. der gewuenschten Ordnungsrelation kleiner als das Objekt
+      * pContent ist, wird true geliefert. Sonst wird false geliefert.
+      *
+      * @param pContent
+      *          das mit dem aufrufenden Objekt zu vergleichende Objekt vom
+      *          Typ ContentType
+      * @return true, wenn das aufrufende Objekt kleiner ist als das Objekt
+      *         pContent, sonst false
+      */
+     public boolean isLess(ContentType pContent);
+
+   }
 }
