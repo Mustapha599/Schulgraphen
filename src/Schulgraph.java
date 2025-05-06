@@ -1,2 +1,3 @@
+//Hase
 public class Schulgraph {
 }
