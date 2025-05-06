@@ -1,3 +1,3 @@
-//Hase
+//Hasen
 public class Schulgraph {
 }
